@@ -1,29 +1,17 @@
-# Materialize sass ruby gem [![Gem Version](https://badge.fury.io/rb/materialize-sass.svg)](http://badge.fury.io/rb/materialize-sass)
+# Materialize Sass version for Rails Asset Pipeline
+[![Gem Version](https://badge.fury.io/rb/materialize-sass.svg)](http://badge.fury.io/rb/materialize-sass)
 
-`materialize-sass` is a Sass powered version of [Materialize](https://materializecss.github.io/materialize), a modern responsive front-end framework based on Material Design.
-
-example: http://materialize.labs.my/ 
-
-source: https://github.com/mkhairi/materialize-rails
-
-# Notices
-This master branch now v1.1.0-alpha
-
-Documentation for previous releases (v0.100.*) are available [this branch.](https://github.com/mkhairi/materialize-sass/tree/v0.100)
+`materialize-sass` is a Sass powered version of [Materialize](http://materializecss.com), a modern responsive front-end framework based on Material Design.
 
 ## Installation
 
 In your Gemfile you need to add the `materialize-sass` gem:
 
 ```ruby
-gem 'materialize-sass', '~> 1.0.0'
-```
-or github master branch
-
-```ruby
-gem 'materialize-sass', github: 'mkhairi/materialize-sass
+gem 'materialize-sass'
 ```
 
+**NOTE:** Ensure that the `sass-rails` gem is presented in your Gemfile.
 
 And then run the bundler and restart your server to make the files available through the pipeline:
 
@@ -58,7 +46,7 @@ $ rm app/assets/stylesheets/application.css
 Since materialize color scheme are declared in color.scss you should import the color.scss first. then you can override color variable just like this:
 
 ```scss
-@import "materialize/components/color-variables";
+@import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
 $secondary-color: color("yellow", "base") !default;
 @import 'materialize';
@@ -67,48 +55,53 @@ $secondary-color: color("yellow", "base") !default;
 or
 
 You can import each component just like in this file below:
-https://github.com/mkhairi/materialize-sass/blob/master/assets/stylesheets/materialize.scss
+https://github.com/mkhairi/materialize-sass/blob/master/app/assets/stylesheets/materialize.scss
 
 ### b. JavaScript
 
 Require Materialize javascripts in `app/assets/javascripts/application.js`:
 
+For turbolinks 5 users
 ```js
-//= require materialize
-```
-
-or 
-
-Require materialize-sprockets to provide individual Materialize components for ease of debugging
-
-```js
+//= require jquery
+//= require turbolinks
 //= require materialize-sprockets
 ```
 
-### c. Icons
+For turbolinks classic users
 
-Include this line in the portion of your HTML code
+Add [`jquery-turbolinks`](https://github.com/kossnocorp/jquery.turbolinks) gem to Gemfile
 
-```html
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+``` gem 'jquery-turbolinks' ```
+
+```js
+//= require jquery
+//= require jquery.turbolinks
+//= require materialize
+//= require turbolinks
 ```
 
-or import this line in your application.scss
-
-```css
-  @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+For non turbolinks users
+```js
+//= require jquery
+//= require materialize
 ```
 
-or install this gem for offline icons
+### c. Extras
 
-```ruby
-  gem 'material_icons' 
+[noUiSlider](http://materializecss.com/forms.html#range)
+
+in your application.scss
+```scss
+@import "materialize/extras/nouislider";
+```
+in your application.js
+```js
+//= require materialize/extras/nouislider
 ```
 
-see [docs](https://github.com/Angelmmiguel/material_icons)
 
 ## Contributing
-note: Any changes or Pull Request regarding materialize assets should be made in official [materialize](https://materializecss.github.io/materialize/) repo.
 
 1. Fork it ( https://github.com/mkhairi/materialize-sass/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)

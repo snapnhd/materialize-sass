@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Materialize::Sass::VERSION
   spec.authors       = ["mkhairi"]
   spec.email         = ["khairi@labs.my"]
-  spec.summary       = %q{Materializecss rubygem for rails/sprockets base}
-  spec.description   = %q{A modern responsive front-end framework based on Material Design. https://materializecss.com/}
+  spec.summary       = %q{Materialzecss sass for rails.}
+  spec.description   = %q{Use materialzecss in your rails asset pipeline.}
   spec.homepage      = "https://github.com/mkhairi/materialize-sass"
   spec.license       = "MIT"
 
@@ -19,10 +19,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # development dependencies
-  spec.add_development_dependency "bundler", ">= 2.2.10"
-  spec.add_development_dependency "rake", ">= 12.3.3"
+  spec.add_development_dependency "bundler", "~> 1.7"
+  spec.add_development_dependency "rake", "~> 10.0"
 
   #runtime dependencies
-  spec.add_runtime_dependency 'sassc-rails', '>= 2.0.0'
-  spec.add_runtime_dependency 'autoprefixer-rails', '>= 9.1.0'
+  spec.add_dependency "sass", "~>3.3"
 end
