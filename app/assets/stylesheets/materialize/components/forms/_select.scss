@@ -1,10 +1,10 @@
 /* Select Field
    ========================================================================== */
 
-select { display: none; }
+select:not([class*='Polaris']) { display: none; }
 select.browser-default { display: block; }
 
-select {
+select:not([class*='Polaris']) {
   background-color: $select-background;
   width: 100%;
   padding: $select-padding;

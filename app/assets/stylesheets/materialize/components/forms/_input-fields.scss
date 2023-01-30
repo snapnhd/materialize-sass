@@ -21,18 +21,18 @@
 
 /* Text inputs */
 
-input:not([type]),
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=url],
-input[type=time],
-input[type=date],
-input[type=datetime],
-input[type=datetime-local],
-input[type=tel],
-input[type=number],
-input[type=search],
+input:not([type], [class*="Polaris"]),
+input:not([class*='Polaris'])[type=text],
+input:not([class*='Polaris'])[type=password],
+input:not([class*='Polaris'])[type=email],
+input:not([class*='Polaris'])[type=url],
+input:not([class*='Polaris'])[type=time],
+input:not([class*='Polaris'])[type=date],
+input:not([class*='Polaris'])[type=datetime],
+input:not([class*='Polaris'])[type=datetime-local],
+input:not([class*='Polaris'])[type=tel],
+input:not([class*='Polaris'])[type=number],
+input:not([class*='Polaris'])[type=search],
 textarea.materialize-textarea {
 
   // General Styles
@@ -244,7 +244,7 @@ textarea.materialize-textarea {
 /* Textarea */
 
 // Default textarea
-textarea {
+textarea:not([class*='Polaris']) {
   width: 100%;
   height: $input-height;
   background-color: transparent;
@@ -258,7 +258,7 @@ textarea {
 }
 
 // For textarea autoresize
-.hiddendiv {
+.hiddendiv:not([class*='Polaris']) {
   display: none;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -268,7 +268,7 @@ textarea {
 
 
 /* Autocomplete */
-.autocomplete-content {
+.autocomplete-content:not([class*='Polaris']) {
   margin-top: -15px;
   display: block;
   opacity: 1;
