@@ -1,16 +1,22 @@
 // Remove Focus Boxes
 select:focus {
-  outline: $select-focus;
+  &:not([class*='Polaris']) {
+    outline: $select-focus;
+  }
 }
 
 button:focus {
-  outline: none;
-  background-color: $button-background-focus;
+  &:not([class*='Polaris']) {
+    outline: none;
+    background-color: $button-background-focus;
+  }
 }
 
 label {
-  font-size: $label-font-size;
-  color: $input-border-color;
+  &:not([class*='Polaris']) {
+    font-size: $label-font-size;
+    color: $input-border-color;
+  }
 }
 
 @import 'input-fields';
